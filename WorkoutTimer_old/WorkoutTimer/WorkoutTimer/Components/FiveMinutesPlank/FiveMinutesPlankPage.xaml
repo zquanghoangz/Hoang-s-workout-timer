@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkoutTimer.Components.FiveMinutesPlank.FiveMinutesPlankPage"
+             Title="FIVE MINUTES PLANK">
+
+    <Grid BindingContext="{StaticResource FiveMinutesPlankVm}"
+          BackgroundColor="{Binding CurrentModel.BackgroundColor}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+               Text="{Binding CurrentModel.Name}"
+               Style="{StaticResource HeaderTitleLabel}" />
+        <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+               Margin="5,0"
+               Source="{Binding CurrentModel.ImageUrl}" />
+
+        <Button Grid.Row="2" Grid.Column="0"
+                Text="{Binding StartPauseText}"
+                Command="{Binding StartPauseCommand}"
+                IsEnabled="{Binding StartPauseEnabled}"
+                Style="{StaticResource RoundButton}"/>
+        <Label Grid.Row="2" Grid.Column="1"
+               Text="{Binding CurrentModel.TimeInSecond}"
+               Style="{StaticResource HeaderTitleLabel}"
+               FontSize="80" />
+        <Button Grid.Row="2" Grid.Column="2"
+                Text="RESET"
+                Command="{Binding ResetCommand}"
+                Style="{StaticResource RoundButton}"/>
+    </Grid>
+</ContentPage>

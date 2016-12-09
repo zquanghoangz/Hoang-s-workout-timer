@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Plank.Views.MainPage"
+             Title="5 MINUTES PLANK">
+    <Grid Padding="20"
+          BackgroundColor="{Binding Model.BackgroundColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Text="{Binding Model.Title}"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="28" />
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               Text="{Binding CountDownNumber}"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="60" />
+        <Image Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Source="{Binding Model.ImageUrl}" />
+        <Button Grid.Row="2"
+                Grid.Column="0"
+                Text="{Binding Status, Converter={StaticResource WorkingStatusToTextConverter}}"
+                Command="{Binding StartCommand}"
+                IsVisible="{Binding StartButtonVisible}"
+                Style="{StaticResource ButtonStyle}" />
+        <Button Grid.Row="2"
+                Grid.Column="0"
+                Text="PAUSE"
+                Command="{Binding PauseCommand}"
+                IsVisible="{Binding StartButtonVisible, Converter={StaticResource InvertBoolConverter}}"
+                Style="{StaticResource ButtonStyle}" />
+        <Button Grid.Row="2"
+                Grid.Column="2"
+                Text="RESET"
+                Command="{Binding ResetCommand}"
+                Style="{StaticResource ButtonStyle}" />
+    </Grid>
+</ContentPage>
