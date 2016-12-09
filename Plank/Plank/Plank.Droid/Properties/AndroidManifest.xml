@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
-  <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
-	<application android:label="Plank.Droid" android:theme="@style/MyTheme"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="1" android:versionName="RC" package="x5MinutesPlank.x5MinutesPlank">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
+	<application android:label="5 Minutes Plank" android:theme="@style/MyTheme" android:icon="@drawable/icon"></application>
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
 </manifest>

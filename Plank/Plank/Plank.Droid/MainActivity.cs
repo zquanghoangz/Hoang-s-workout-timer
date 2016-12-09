@@ -19,6 +19,8 @@ namespace Plank.Droid
             TabLayoutResource = Resource.Layout.tabs;
             ToolbarResource = Resource.Layout.toolbar;
 
+            Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
